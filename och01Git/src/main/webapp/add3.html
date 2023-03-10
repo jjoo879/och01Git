@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function chk() {
+		// 비어있으면 --> 숫자입력 + focus
+		// 문자면 --> 숫자가 아님 헐 + focus + 입력된 글자 지우기
+		if (!frm.num.value) {
+			alert("숫자 입력?");
+			frm.num.focus();
+			return false;
+		}
+		if (isNaN(frm.num.value)) {
+			alert("숫자가 아님 헐");
+			frm.num.focus();
+			frm.num.value = "";	// 입력된 글자 지우기
+			return false;
+		}
+		return true;
+	}
+
+</script>
+</head>
+<body>
+	<h1>숫자를 입력하세요</h1>
+	<h3>1부터 num 까지의 합계</h3>
+		<!-- 자바 프로그래밍을 돌리는 것 연습
+			View에서는 소문자도 상관없지만 Java로 보낼거면 대문자로 시작해야 한다! -->
+	<form action="Add3" name="frm" onsubmit="return chk()">
+		<!-- 여기서 거짓이면 Add3으로 안 넘어가고 계속 chk()에 머물러있다! -->
+		<!-- onsubmit=  이 값을 Add3으로 보내기전에 확인하는 단계 -->
+		숫자 : <input type="text" name="num"><p>
+		위치 : <input type="text" name="loc"><p>
+		<input type="submit" value="확인">
+		
+	
+	
+	
+	</form>
+	
+</body>
+</html>
